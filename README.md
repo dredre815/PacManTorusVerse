@@ -1,44 +1,84 @@
 # PacMan in the TorusVerse
 
+A modern take on the classic PacMan game, featuring map-based gameplay with portals and multiple levels.
+
 ## Team Members
 - Team Leader: Zijun Zhang
 - Members: Hogi Kwak, Xiaoyu Pang
 
 ## Overview
 
-This project aims to develop an editor and test application for "PacMan in the TorusVerse." This new variation of the game focuses on map-based gameplay with features like portals and multiple levels.
+PacMan in the TorusVerse is an innovative adaptation of the classic PacMan game that combines traditional gameplay elements with new features like portals and multi-level progression. The project includes both a game engine and a map editor, allowing players to both play and create custom levels.
 
-## Game Capabilities
+## Features
 
-1. **Multiple Levels/Maps**: Support for multiple maps played in ascending order.
-2. **Portals**: Implementation of portal tiles for teleportation effects.
-3. **Autoplayer**: Development of a smarter autoplayer for the game.
+### Game Features
+- **Multiple Levels**: Support for playing multiple maps in ascending order
+- **Portal System**: Teleportation mechanics using different types of portal tiles
+- **Smart Autoplayer**: Enhanced AI for automated gameplay
+- **Classic Elements**: Traditional PacMan mechanics including:
+  - Pills and Gold collection
+  - Monster avoidance (TX5 and Troll types)
+  - Ice cube obstacles
 
-## Application Capabilities
+### Map Editor Features
+- **Visual Editor**: Intuitive GUI for map creation and editing
+- **Tile System**: Multiple tile types including:
+  - Walls
+  - Pills
+  - Gold
+  - Ice
+  - Portals (White, Yellow, Dark Gold, Dark Gray)
+  - Monster spawn points
+  - PacMan spawn point
+- **Map Validation**: Comprehensive checking system ensuring maps are playable
+- **Save/Load**: XML-based map saving and loading functionality
 
-- **Start Up**: Modes for editing and testing maps.
-- **Edit and Test Mode**: Functionality for loading, saving, and testing maps.
-- **Level Checking**: Validity checks for levels according to specified rules.
-- **Game Checking**: Validation of the game folder's content.
+## Technical Details
 
-## Your Task
+### Map Requirements
+1. Each map must have exactly one PacMan starting point
+2. Portal tiles must appear in pairs
+3. Maps must contain at least two pills and two gold pieces
+4. All pills and gold must be accessible to PacMan
 
-- Utilize provided PacMan basecode and tile editor codebase.
-- Create a single application incorporating new functionalities.
-- Maintain original game behavior where new features don't apply.
+### Game Architecture
+- **XML-based Map Storage**: Maps are stored in XML format for easy editing and validation
+- **Camera System**: Flexible viewport management for map editing
+- **Event-Driven Design**: Utilizes property change listeners for UI updates
+- **Modular Structure**: Separate modules for game logic, map editing, and validation
 
-## Project Deliverables
+## Getting Started
 
-1. **Editor for PacMan in the TorusVerse**: A modified version of the editor with your team's name and members in all changed or new source code files.
-2. **Report**: Analysis of design changes, design patterns, and principles used.
-3. **Software Models**: Required design class diagrams and domain class diagrams.
+### Running the Game
+```java
+java -jar pacman.jar [map_file.xml|map_folder]
+```
 
-## Submission
+### Running without arguments: Opens the map editor
+- With .xml file: Opens the specified map in edit mode
+- With folder path: Loads multiple maps for sequential gameplay
 
-- Submit all deliverables in a specified file structure.
-- Ensure thorough testing of the software prior to submission.
+### Map Creation
+1. Launch the map editor
+2. Select tiles from the palette
+3. Click to place tiles on the grid
+4. Use the editor tools to test and validate your map
+5. Save your map in XML format
 
-## Key Aspects
+## Project Structure
+- `src/Game.java`: Main game engine
+- `src/mapeditor/`: Map editor components
+- `src/utility/`: Utility classes and helpers
+- `data/`: Game assets and resources
 
-- Focus on map-based gameplay and editor functionality.
-- Design and implement new features while maintaining the core PacMan gameplay.
+## Validation System
+The project includes two levels of validation:
+1. **Level Checking**: Validates individual map files
+2. **Game Checking**: Ensures proper organization of multiple map files
+
+## License
+The project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contributing
+Feel free to fork the project and submit pull requests. For major changes, please open an issue first to discuss what you would like to change.
